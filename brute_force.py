@@ -4,28 +4,41 @@
 
 #I will fix it later...
 
+# 2016-06-30, OK, it works!
+
 def bfAlgo(src, substr):
 	i = 0
-	count = 0
-#	tmp = 24
+	j = 0
+	index = -1
+
 #	for i in range(0, len(src) - len(substr)):
-	while (i <= len(src) - len(substr)):
-		j = 0
+	while (i <= (len(src) - len(substr))):
+#		j = 0
+#		i = i + 1
 		while(src[i] == substr[j]):
+#			i = i + 1
+#			j = j + 1
+			# The relationship between index & length..
+			if j == len(substr) - 1:
+				index = i - len(substr) + 1;
+				return index
+#			elif(j == len(substr) - 1):
+#				index = index + 1
+#			else:
+#				i = i + 1
+			# matching continue
 			i = i + 1
 			j = j + 1
-			if j == len(substr):
-				break;
-			elif(j == len(substr) - 1):
-				count = count + 1
-			else:
-				i = i + 1
-				j = 0
 
-#		if j == len(substr):
+#		if index == i - len(substr) + 1:
 #			break;
 
-	return count
+#		if j is not 0:
+		# unmatched, backtracking...
+		j = 0
+		i = i + 1
+
+	return index
 
 #	for str1 in substr:
 #		for str2 in src:
@@ -33,8 +46,15 @@ def bfAlgo(src, substr):
 
 srcStr = 'Hope is a good thing. Fear can hold you prisoner, hope can set you free. Get busy living, or get busy dying.'
 targetStr = 'set you free'
+#srcStr = 'beautifully'
+#targetStr = 'ul'
 
 subIdx = bfAlgo(srcStr, targetStr)
 
-print(subIdx)
+#print(len(srcStr))
+#print(len(targetStr))
+#print(len('Hope is a good thing. Fear can hold you prisoner, hope can '))
 
+#print(targetStr[0])
+
+print(subIdx)
