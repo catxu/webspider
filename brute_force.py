@@ -18,7 +18,7 @@ def bfAlgo(src, substr):
 		while(src[i] == substr[j]):
 #			i = i + 1
 #			j = j + 1
-			# The relationship between index & length..
+			# The relationship between index & length.
 			if j == len(substr) - 1:
 				index = i - len(substr) + 1;
 				return index
@@ -26,7 +26,7 @@ def bfAlgo(src, substr):
 #				index = index + 1
 #			else:
 #				i = i + 1
-			# matching continue
+			# matching continue.
 			i = i + 1
 			j = j + 1
 
@@ -34,9 +34,10 @@ def bfAlgo(src, substr):
 #			break;
 
 #		if j is not 0:
-		# unmatched, backtracking...
+		# unmatched, backtracking.
+		i = i - j + 1
 		j = 0
-		i = i + 1
+
 
 	return index
 
@@ -44,10 +45,14 @@ def bfAlgo(src, substr):
 #		for str2 in src:
 #			if str2 == str1:
 
-srcStr = 'Hope is a good thing. Fear can hold you prisoner, hope can set you free. Get busy living, or get busy dying.'
-targetStr = 'set you free'
+#srcStr = 'Hope is a good thing. Fear can hold you prisoner, hope can set you free. Get busy living, or get busy dying.'
+#targetStr = 'set you free'
+
 #srcStr = 'beautifully'
 #targetStr = 'ul'
+
+srcStr = 'abcabcac'
+targetStr = 'abcac'
 
 subIdx = bfAlgo(srcStr, targetStr)
 
